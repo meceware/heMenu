@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="www.frebsite.nl" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>heMenu Demo</title>
+    <meta name="description" content="A no-dependency, simple yet effective, multi-level off-canvas menu library."/>
+
+		<link type="text/css" rel="stylesheet" href="assets/demo.css" />
+		<link type="text/css" rel="stylesheet" href="hemenu.min.css" />
+	</head>
+
+<body>
+  <div id="page">
+    <div class="header">
+      <a id="left-trigger" class="lefta" href="#"><span></span></a>
+      Demo
+      <a id="right-trigger" class="righta" href="#"><span></span></a>
+    </div>
+
+    <div class="content">
+      <p><strong>This is a demo.</strong><br />
+        Click the hamburger icon to open the menu.</p>
+    </div>
+  </div>
+
+  <div id="left-menu-wrapper" class = "hemenu">
+    <div class="hemenu-content">
+      <div class="hemenu-header">The header goes here!</div>
+      <div class="hemenu-menu">
+        <nav id="menu">
+          <ul>
+            <li class="selected"><a href="#">Home</a></li>
+            <li><span>About us</span>
+              <ul class="">
+                <li><a href="#about/history">History</a></li>
+                <li><span>The team</span>
+                  <ul class="">
+                    <li><a href="#about/team/management">Management</a></li>
+                    <li><a href="#about/team/sales">Sales</a>
+                      <ul class="">
+                        <li><a href="#about/team/management">Management</a></li>
+                        <li><a href="#about/team/sales">Sales</a>
+                          <ul class="">
+                            <li><a href="#about/team/management">Management</a></li>
+                            <li><a href="#about/team/sales">Sales</a></li>
+                            <li class="selected"><a href="#about/team/development">Development</a></li>
+                          </ul>
+                        </li>
+                        <li class="selected"><a href="#about/team/development">Development</a>
+                          <ul class="">
+                            <li><a href="#about/team/management">Management</a></li>
+                            <li><a href="#about/team/sales">Sales</a></li>
+                            <li class="selected"><a href="#about/team/development">Development</a>
+                              <ul class="">
+                                <li><a href="#about/team/management">Management</a></li>
+                                <li><a href="#about/team/sales">Sales</a></li>
+                                <li class="selected"><a href="#about/team/development">Development</a></li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="selected"><a href="#about/team/development">Development</a></li>
+                  </ul>
+                </li>
+                <li><a href="#about/address">Our address</a></li>
+              </ul>
+            </li>
+            <li><span>Menu with Submenu</span>
+              <ul class="">
+                <li><a href="#about/history">Submenu 1</a></li>
+                <li><span>Submenu with Submenu</span>
+                  <ul class="">
+                    <li><a href="#about/team/management">Submenu 2</a></li>
+                    <li><a href="#about/team/sales">Submenu 3</a></li>
+                    <li><a href="#about/team/development">Submenu 4</a></li>
+                  </ul>
+                </li>
+                <li><a href="#about/address">Submenu 5</a></li>
+              </ul>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+      </div>
+      <div class="hemenu-footer">The footer goes here!</div>
+    </div>
+  </div>
+
+
+  <div id="right-menu-wrapper" class = "hemenu" data-hemenu="%7B%22menu%22%3A%22.hemenu-menu%22%2C%22trigger%22%3A%22%23right-trigger%22%2C%22title%22%3A%22Menu%22%2C%22selected%22%3A%22selected%22%2C%22theme%22%3A%22dark%22%2C%22position%22%3A%22right%22%7D">
+    <div class="hemenu-content">
+      <div class="hemenu-header">The header goes here!</div>
+      <div class="hemenu-menu">
+        <nav id="menu">
+          <ul>
+            <li class="selected"><a href="#">Home</a></li>
+            <li><span>About us</span>
+              <ul class="">
+                <li><a href="#about/history">History</a></li>
+                <li><span>The team</span>
+                  <ul class="">
+                    <li><a href="#about/team/management">Management</a></li>
+                    <li><a href="#about/team/sales">Sales</a></li>
+                    <li class="selected"><a href="#about/team/development">Development</a></li>
+                  </ul>
+                </li>
+                <li><a href="#about/address">Our address</a></li>
+              </ul>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+      </div>
+      <div class="hemenu-footer">The footer goes here!</div>
+    </div>
+  </div>
+
+
+  <script src="hemenu.min.js"></script>
+  <script>
+    new heMenu( '#left-menu-wrapper', {
+      menu: '.hemenu-menu',
+      trigger: '#left-trigger',
+      title: 'Menu',
+      selected: 'selected',
+      theme: 'light',
+      position: 'left',
+    } );
+  </script>
+
+</body>
+
+</html>
