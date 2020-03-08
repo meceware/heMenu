@@ -325,6 +325,8 @@ export default ( ( global, document ) => {
 
   heMenu.scan();
 
+  window.heMenu = heMenu;
+
   // Return heMenu
   return heMenu;
 } )( 'undefined' !== typeof window ? window : undefined, document );

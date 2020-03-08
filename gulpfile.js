@@ -13,7 +13,6 @@ const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cleancss = require( 'gulp-clean-css' );
 const serve = require( 'rollup-plugin-serve' );
-const livereload = require( 'rollup-plugin-livereload' );
 
 const css = () => {
   return gulp.src( 'src/**/*.scss' )
@@ -46,7 +45,6 @@ const devjs = () => {
         ]
       } ),
       serve( { contentBase: [ 'demo', 'dist' ], } ),
-      // livereload( 'dist' )
     ]
   } ).then( function( bundle ) {
     return bundle.write( {
