@@ -1,5 +1,5 @@
 /* 
- * heMenu v1.0.1
+ * heMenu v1.0.2
  * https://github.com/meceware/heMenu 
  * 
  * Made by Mehmet Celik (https://www.meceware.com/) 
@@ -7,7 +7,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.heMenu = factory());
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.heMenu = factory());
 }(this, (function () { 'use strict';
 
   if (!Element.prototype.matches) {
