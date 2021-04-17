@@ -1,16 +1,16 @@
 const gulp = require( 'gulp' );
 const del = require( 'del' );
-const rename = require("gulp-rename");
-const rollup = require( 'rollup' ).rollup;
-const babel = require( 'rollup-plugin-babel' )
-const commonjs = require( 'rollup-plugin-commonjs' );
-const nodeResolve = require( 'rollup-plugin-node-resolve' );
-const { eslint } = require( 'rollup-plugin-eslint' );
+const rename = require( 'gulp-rename' );
+const { rollup } = require( 'rollup' );
+const { babel } = require( '@rollup/plugin-babel' );
+const commonjs = require( '@rollup/plugin-commonjs' );
+const { nodeResolve } = require( '@rollup/plugin-node-resolve' );
+const eslint = require( '@rollup/plugin-eslint' );
 const { terser } = require( 'rollup-plugin-terser' );
-const package = require( './package.json' );
-const gzipSize = require('gzip-size');
+const pckg = require( './package.json' );
+const gzipSize = require( 'gzip-size' );
 const sass = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
+const autoprefixer = require( 'gulp-autoprefixer' );
 const cleancss = require( 'gulp-clean-css' );
 const serve = require( 'rollup-plugin-serve' );
 
@@ -33,26 +33,36 @@ const devjs = () => {
       babel( {
         exclude: 'node_modules/**',
         presets: [
-          [ "@babel/env",
+          [ '@babel/env',
             {
               targets: {
-                browsers: [ "> 1%", "ie > 11" ]
+                browsers: [
+                  '> 1%',
+                  'last 2 Chrome major versions',
+                  'last 2 Firefox major versions',
+                  'last 2 Edge major versions',
+                  'last 2 Safari major versions',
+                  'ie 11',
+                  'last 3 Android major versions',
+                  'last 3 ChromeAndroid major versions',
+                  'last 2 iOS major versions',
+                ],
               },
-              useBuiltIns: "usage",
-              corejs: "3"
-            }
-          ]
-        ]
+              useBuiltIns: 'usage',
+              corejs: '3',
+            },
+          ],
+        ],
       } ),
-      serve( { contentBase: [ 'demo', 'dist' ], } ),
-    ]
+      serve( { contentBase: [ 'demo', 'dist' ] } ),
+    ],
   } ).then( function( bundle ) {
     return bundle.write( {
       name: 'heMenu',
       file: 'dist/hemenu.min.js',
       format: 'umd',
       moduleName: 'heMenu',
-      sourcemap: true
+      sourcemap: true,
     } );
   } );
 };
@@ -72,9 +82,9 @@ const clean = ( callback ) => {
 };
 
 const buildjs = () => {
-  var banner =
+  const banner =
     '/* \n' +
-    ' * heMenu v' + package.version + '\n' +
+    ' * heMenu v' + pckg.version + '\n' +
     ' * https://github.com/meceware/heMenu \n' +
     ' * \n' +
     ' * Made by Mehmet Celik (https://www.meceware.com/) \n' +
@@ -84,32 +94,42 @@ const buildjs = () => {
     input: 'src/index.js',
     plugins: [
       eslint(),
-      nodeResolve( { mainFields: ['jsnext:module', 'jsnext:main'] } ),
+      nodeResolve( { mainFields: [ 'jsnext:module', 'jsnext:main' ] } ),
       commonjs(),
-      babel({
-          exclude: 'node_modules/**',
-          presets: [
-            [ "@babel/env",
-              {
-                targets: {
-                  browsers: [ "> 1%", "ie > 11" ]
-                },
-                useBuiltIns: "usage",
-                corejs: "3"
-              }
-            ]
-          ]
-        }),
+      babel( {
+        exclude: 'node_modules/**',
+        presets: [
+          [ '@babel/env',
+            {
+              targets: {
+                browsers: [
+                  '> 1%',
+                  'last 2 Chrome major versions',
+                  'last 2 Firefox major versions',
+                  'last 2 Edge major versions',
+                  'last 2 Safari major versions',
+                  'ie 11',
+                  'last 3 Android major versions',
+                  'last 3 ChromeAndroid major versions',
+                  'last 2 iOS major versions',
+                ],
+              },
+              useBuiltIns: 'usage',
+              corejs: '3',
+            },
+          ],
+        ],
+      } ),
       terser( {
         output: {
           comments: function( node, comment ) {
             if ( 'comment2' === comment.type ) {
               return /Made by Mehmet Celik/.test( comment.value );
             }
-          }
-        }
-      } )
-    ]
+          },
+        },
+      } ),
+    ],
   } ).then( function( bundle ) {
     return bundle.write( {
       name: 'heMenu',
@@ -117,20 +137,20 @@ const buildjs = () => {
       format: 'umd',
       moduleName: 'heMenu',
       sourcemap: false,
-      banner: banner
+      banner: banner,
     } );
   } ).then( function() {
     return rollup( {
       input: 'src/index.js',
       plugins: [
         eslint(),
-        nodeResolve({ mainFields: ['jsnext:module', 'jsnext:main'] }),
+        nodeResolve( { mainFields: [ 'jsnext:module', 'jsnext:main' ] } ),
         commonjs(),
-        babel({
-          exclude: 'node_modules/**'
-        })
-      ]
-    });
+        babel( {
+          exclude: 'node_modules/**',
+        } ),
+      ],
+    } );
   } ).then( function( bundle ) {
     return bundle.write( {
       name: 'heMenu',
@@ -138,17 +158,17 @@ const buildjs = () => {
       format: 'umd',
       moduleName: 'heMenu',
       sourcemap: false,
-      banner: banner
+      banner: banner,
     } );
   } );
 };
 
 const size = ( callback ) => {
-  console.log( 'JS: gzipped file size: ' +  Math.round( ( gzipSize.fileSync( 'dist/hemenu.min.js' ) / 1024 ) * 100 ) / 100 + 'KB');
-  console.log( 'CSS: gzipped file size: ' +  Math.round( ( gzipSize.fileSync( 'dist/hemenu.min.css' ) / 1024 ) * 100 ) / 100 + 'KB');
+  console.log( 'JS: gzipped file size: ' + ( Math.round( ( gzipSize.fileSync( 'dist/hemenu.min.js' ) / 1024 ) * 100 ) / 100 ) + 'KB' );
+  console.log( 'CSS: gzipped file size: ' + ( Math.round( ( gzipSize.fileSync( 'dist/hemenu.min.css' ) / 1024 ) * 100 ) / 100 ) + 'KB' );
 
   callback();
 };
 
 exports.dev = gulp.series( gulp.parallel( devjs, css ), watch );
-exports.build = gulp.series( clean, buildjs, css , size );
+exports.build = gulp.series( clean, buildjs, css, size );
