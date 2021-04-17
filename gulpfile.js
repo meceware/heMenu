@@ -9,18 +9,18 @@ const eslint = require( '@rollup/plugin-eslint' );
 const { terser } = require( 'rollup-plugin-terser' );
 const pckg = require( './package.json' );
 const gzipSize = require( 'gzip-size' );
-const sass = require('gulp-sass');
+const sass = require( 'gulp-sass' );
 const autoprefixer = require( 'gulp-autoprefixer' );
 const cleancss = require( 'gulp-clean-css' );
 const serve = require( 'rollup-plugin-serve' );
 
 const css = () => {
   return gulp.src( 'src/**/*.scss' )
-      .pipe( sass().on( 'error', sass.logError ) )
-      .pipe( autoprefixer( ['> 5%', 'last 5 versions'] ) )
-      .pipe( cleancss() )
-      .pipe( rename('hemenu.min.css' ) )
-      .pipe( gulp.dest( 'dist' ) );
+    .pipe( sass().on( 'error', sass.logError ) )
+    .pipe( autoprefixer( [ '> 5%', 'last 5 versions' ] ) )
+    .pipe( cleancss() )
+    .pipe( rename( 'hemenu.min.css' ) )
+    .pipe( gulp.dest( 'dist' ) );
 };
 
 const devjs = () => {
@@ -75,7 +75,7 @@ const watch = () => {
 const clean = ( callback ) => {
   // Remove dist folder content
   del( [
-    'dist/**/*'
+    'dist/**/*',
   ] );
 
   callback();
