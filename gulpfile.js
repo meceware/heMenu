@@ -9,7 +9,7 @@ const eslint = require( '@rollup/plugin-eslint' );
 const { terser } = require( 'rollup-plugin-terser' );
 const pckg = require( './package.json' );
 const gzipSize = require( 'gzip-size' );
-const sass = require( 'gulp-sass' );
+const { sass } = require( '@mr-hope/gulp-sass' );
 const autoprefixer = require( 'gulp-autoprefixer' );
 const cleancss = require( 'gulp-clean-css' );
 const serve = require( 'rollup-plugin-serve' );
@@ -54,7 +54,11 @@ const devjs = () => {
           ],
         ],
       } ),
-      serve( { contentBase: [ 'demo', 'dist' ] } ),
+      serve( {
+        contentBase: [ 'demo', 'dist' ],
+        host: '0.0.0.0',
+        port: 8010,
+      } ),
     ],
   } ).then( function( bundle ) {
     return bundle.write( {
