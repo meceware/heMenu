@@ -42,7 +42,7 @@
     "del": "^6.0.0",
     "element-closest-polyfill": "^1.0.4",
     "element-matches-polyfill": "^1.0.0",
-    "node-sass": "^6.0.0",
+    "node-sass": "^7.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
