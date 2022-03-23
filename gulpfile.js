@@ -8,11 +8,15 @@ const { nodeResolve } = require( '@rollup/plugin-node-resolve' );
 const eslint = require( '@rollup/plugin-eslint' );
 const { terser } = require( 'rollup-plugin-terser' );
 const pckg = require( './package.json' );
-const gzipSize = require( 'gzip-size' );
 const { sass } = require( '@mr-hope/gulp-sass' );
 const autoprefixer = require( 'gulp-autoprefixer' );
 const cleancss = require( 'gulp-clean-css' );
 const serve = require( 'rollup-plugin-serve' );
+
+const gzipSizeFromFileSync = async ( path ) => {
+  const gzipSize = await import( 'gzip-size' );
+  return gzipSize.gzipSizeFromFileSync( path );
+};
 
 const css = () => {
   return gulp.src( 'src/**/*.scss' )
@@ -32,6 +36,7 @@ const devjs = () => {
       commonjs(),
       babel( {
         exclude: 'node_modules/**',
+        babelHelpers: 'bundled',
         presets: [
           [ '@babel/env',
             {
@@ -42,7 +47,6 @@ const devjs = () => {
                   'last 2 Firefox major versions',
                   'last 2 Edge major versions',
                   'last 2 Safari major versions',
-                  'ie 11',
                   'last 3 Android major versions',
                   'last 3 ChromeAndroid major versions',
                   'last 2 iOS major versions',
@@ -65,7 +69,6 @@ const devjs = () => {
       name: 'heMenu',
       file: 'dist/hemenu.min.js',
       format: 'umd',
-      moduleName: 'heMenu',
       sourcemap: true,
     } );
   } );
@@ -102,6 +105,7 @@ const buildjs = () => {
       commonjs(),
       babel( {
         exclude: 'node_modules/**',
+        babelHelpers: 'bundled',
         presets: [
           [ '@babel/env',
             {
@@ -112,7 +116,6 @@ const buildjs = () => {
                   'last 2 Firefox major versions',
                   'last 2 Edge major versions',
                   'last 2 Safari major versions',
-                  'ie 11',
                   'last 3 Android major versions',
                   'last 3 ChromeAndroid major versions',
                   'last 2 iOS major versions',
@@ -139,7 +142,6 @@ const buildjs = () => {
       name: 'heMenu',
       file: 'dist/hemenu.min.js',
       format: 'umd',
-      moduleName: 'heMenu',
       sourcemap: false,
       banner: banner,
     } );
@@ -152,6 +154,7 @@ const buildjs = () => {
         commonjs(),
         babel( {
           exclude: 'node_modules/**',
+          babelHelpers: 'bundled',
         } ),
       ],
     } );
@@ -160,7 +163,6 @@ const buildjs = () => {
       name: 'heMenu',
       file: 'dist/hemenu.js',
       format: 'umd',
-      moduleName: 'heMenu',
       sourcemap: false,
       banner: banner,
     } );
@@ -168,10 +170,13 @@ const buildjs = () => {
 };
 
 const size = ( callback ) => {
-  console.log( 'JS: gzipped file size: ' + ( Math.round( ( gzipSize.fileSync( 'dist/hemenu.min.js' ) / 1024 ) * 100 ) / 100 ) + 'KB' );
-  console.log( 'CSS: gzipped file size: ' + ( Math.round( ( gzipSize.fileSync( 'dist/hemenu.min.css' ) / 1024 ) * 100 ) / 100 ) + 'KB' );
-
-  callback();
+  gzipSizeFromFileSync( './dist/hemenu.min.js' ).then( val => {
+    console.log( 'JS: gzipped file size: ' + ( Math.round( ( val / 1024 ) * 100 ) / 100 ) + 'KB' );
+    gzipSizeFromFileSync( './dist/hemenu.min.css' ).then( val => {
+      console.log( 'CSS: gzipped file size: ' + ( Math.round( ( val / 1024 ) * 100 ) / 100 ) + 'KB' );
+      callback();
+    } );
+  } );
 };
 
 exports.dev = gulp.series( gulp.parallel( devjs, css ), watch );
