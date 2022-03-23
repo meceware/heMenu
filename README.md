@@ -9,7 +9,7 @@ heMenu runs on IE11+ and all modern browsers.
 ## Overhead
 
 ```
-JS: 14.6 KB (5.6 KB gzipped)
+JS: 5.2 KB (1.67 KB gzipped)
 CSS: 5 KB (1.2 KB gzipped)
 ```
 
