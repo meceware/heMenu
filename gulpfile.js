@@ -1,5 +1,4 @@
 const gulp = require( 'gulp' );
-const del = require( 'del' );
 const rename = require( 'gulp-rename' );
 const { rollup } = require( 'rollup' );
 const { babel } = require( '@rollup/plugin-babel' );
@@ -16,6 +15,11 @@ const serve = require( 'rollup-plugin-serve' );
 const gzipSizeFromFileSync = async ( path ) => {
   const gzipSize = await import( 'gzip-size' );
   return gzipSize.gzipSizeFromFileSync( path );
+};
+
+const deleteFiles = async ( patterns ) => {
+  const { deleteSync } = await import( 'del' );
+  deleteSync( patterns );
 };
 
 const css = () => {
@@ -81,7 +85,7 @@ const watch = () => {
 
 const clean = ( callback ) => {
   // Remove dist folder content
-  del( [
+  deleteFiles( [
     'dist/**/*',
   ] );
 
