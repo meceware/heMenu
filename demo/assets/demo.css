@@ -99,3 +99,11 @@ a, a:link, a:active, a:visited, a:hover {
 .content {
 	padding: 150px 50px 50px 50px;
 }
+
+.menu-icon {
+	height: 24px;
+	width: auto;
+	margin-right: 10px;
+	display: inline-block;
+	vertical-align: middle;
+}
