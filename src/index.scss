@@ -195,7 +195,7 @@ body.hemenu-opened {
 }
 
 .hemenu-menu {
-  a, span {
+  a, span, .hemenu-span {
     @extend %hemenu-reset;
 
     position: relative;
@@ -203,7 +203,7 @@ body.hemenu-opened {
   }
 
   // The arrow
-  .hemenu-menu-level > a, .hemenu-menu-level > span {
+  .hemenu-menu-level > a, .hemenu-menu-level > span, .hemenu-menu-level > .hemenu-span {
     //  The arrow.
     &:before {
       content: '';
@@ -249,7 +249,7 @@ body.hemenu-opened {
   }
 
   //  Show arrow for opening the submenu.
-  span {
+  span, .hemenu-span {
     background: transparent;
   }
 

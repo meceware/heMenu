@@ -137,7 +137,7 @@ export default ( ( global, document ) => {
           /** Parent listitem for the submenu.  */
           let listitem;
           //  Find the parent listitem.
-          if ( closest( target, 'span', this.menu ) ) {
+          if ( closest( target, 'span, div.hemenu-span', this.menu ) ) {
             listitem = target.parentElement;
           } else if ( closest( target, 'li', this.menu ) ) {
             listitem = target;
@@ -195,7 +195,7 @@ export default ( ( global, document ) => {
 
       // Get panel title
       forEach( panel.parentElement.children, ( child ) => {
-        if ( child.matches( 'a, span' ) ) {
+        if ( child.matches( 'a, span, div.hemenu-span' ) ) {
           title = child.textContent;
         }
       } );
