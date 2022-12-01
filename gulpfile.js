@@ -5,7 +5,7 @@ const { babel } = require( '@rollup/plugin-babel' );
 const commonjs = require( '@rollup/plugin-commonjs' );
 const { nodeResolve } = require( '@rollup/plugin-node-resolve' );
 const eslint = require( '@rollup/plugin-eslint' );
-const { terser } = require( 'rollup-plugin-terser' );
+const terser = require( '@rollup/plugin-terser' );
 const pckg = require( './package.json' );
 const { sass } = require( '@mr-hope/gulp-sass' );
 const autoprefixer = require( 'gulp-autoprefixer' );
@@ -65,7 +65,7 @@ const devjs = () => {
       serve( {
         contentBase: [ 'demo', 'dist' ],
         host: '0.0.0.0',
-        port: 8010,
+        port: 8001,
       } ),
     ],
   } ).then( function( bundle ) {

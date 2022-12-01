@@ -1,6 +1,6 @@
 {
   "name": "hemenu",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A no-dependency, simple yet effective, multi-level off-canvas menu library.",
   "author": {
     "name": "Mehmet Celik",
@@ -32,14 +32,14 @@
     "last 2 iOS major versions"
   ],
   "devDependencies": {
-    "@babel/core": "^7.18.10",
-    "@babel/preset-env": "^7.18.10",
-    "@mr-hope/gulp-sass": "^3.0.2",
-    "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-commonjs": "^22.0.2",
-    "@rollup/plugin-eslint": "^8.0.2",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "core-js": "^3.24.1",
+    "@babel/core": "^7.20.5",
+    "@babel/preset-env": "^7.20.2",
+    "@mr-hope/gulp-sass": "^3.1.1",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^23.0.3",
+    "@rollup/plugin-eslint": "^9.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "core-js": "^3.26.1",
     "del": "^7.0.0",
     "element-closest-polyfill": "^1.0.5",
     "element-matches-polyfill": "^1.0.0",
@@ -48,10 +48,10 @@
     "gulp-clean-css": "^4.3.0",
     "gulp-rename": "^2.0.0",
     "gzip-size": "^7.0.0",
-    "node-sass": "^7.0.1",
-    "rollup": "^2.77.3",
-    "rollup-plugin-serve": "^2.0.1",
-    "rollup-plugin-terser": "^7.0.2"
+    "node-sass": "^8.0.0",
+    "rollup": "^3.5.1",
+    "rollup-plugin-serve": "^2.0.2",
+    "@rollup/plugin-terser": "^0.1.0"
   },
   "dependencies": {
     "js-size": "^2.1.7"
