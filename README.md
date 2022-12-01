@@ -60,7 +60,7 @@ The required HTML markup is as the following:
           <li><span>About us</span>
             <ul class="">
               <li><a href="#about/history">History</a></li>
-              <li><span>The team</span>
+              <li><div class="hemenu-span">The team</div>
                 <ul class="">
                   <li><a href="#about/team/management">Management</a></li>
                   <li><a href="#about/team/sales">Sales</a></li>
@@ -81,6 +81,8 @@ The required HTML markup is as the following:
 ```
 
 `hemenu-header` and `hemenu-footer` elements are optional. These can be removed.
+
+Instead of the `span` element title, you can also create your own element with `hemenu-span` class name.
 
 To initialize the heMenu, following script can be used:
 
