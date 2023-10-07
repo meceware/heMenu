@@ -32,26 +32,26 @@
     "last 2 iOS major versions"
   ],
   "devDependencies": {
-    "@babel/core": "^7.20.5",
-    "@babel/preset-env": "^7.20.2",
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.22.20",
     "@mr-hope/gulp-sass": "^3.1.1",
-    "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-commonjs": "^23.0.3",
-    "@rollup/plugin-eslint": "^9.0.1",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "core-js": "^3.26.1",
-    "del": "^7.0.0",
-    "element-closest-polyfill": "^1.0.5",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.5",
+    "@rollup/plugin-eslint": "^9.0.5",
+    "@rollup/plugin-node-resolve": "^15.2.2",
+    "core-js": "^3.33.0",
+    "del": "^7.1.0",
+    "element-closest-polyfill": "^1.0.6",
     "element-matches-polyfill": "^1.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-rename": "^2.0.0",
     "gzip-size": "^7.0.0",
-    "node-sass": "^8.0.0",
-    "rollup": "^3.5.1",
+    "node-sass": "^9.0.0",
+    "rollup": "^4.0.2",
     "rollup-plugin-serve": "^2.0.2",
-    "@rollup/plugin-terser": "^0.1.0"
+    "@rollup/plugin-terser": "^0.4.4"
   },
   "dependencies": {
     "js-size": "^2.1.7"
