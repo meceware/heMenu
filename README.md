@@ -113,6 +113,7 @@ encodeURIComponent( JSON.stringify( {
 This is especially useful for React components. Check the demo file for more information.
 
 ## Build
+
 Clone the repo, run
 ```
 npm install
@@ -124,6 +125,16 @@ npm run build
 The output minified JS file will be at the dist folder.
 
 You can help out by reporting any issues and feature requests.
+
+With docker, you can also run the following command:
+
+```bash
+# To build
+docker run --rm --volume ./:/app --workdir /app --publish 8001:8001 node:22.5.1 /bin/bash -c "npm install && npm run build"
+
+# Manual via terminal
+docker run -it --rm --volume ./:/app --workdir /app --publish 8001:8001 node:22.5.1 /bin/bash
+```
 
 ## Credits
 

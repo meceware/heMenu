@@ -1,16 +1,15 @@
-const gulp = require( 'gulp' );
-const rename = require( 'gulp-rename' );
-const { rollup } = require( 'rollup' );
-const { babel } = require( '@rollup/plugin-babel' );
-const commonjs = require( '@rollup/plugin-commonjs' );
-const { nodeResolve } = require( '@rollup/plugin-node-resolve' );
-const eslint = require( '@rollup/plugin-eslint' );
-const terser = require( '@rollup/plugin-terser' );
-const pckg = require( './package.json' );
-const { sass } = require( '@mr-hope/gulp-sass' );
-const autoprefixer = require( 'gulp-autoprefixer' );
-const cleancss = require( 'gulp-clean-css' );
-const serve = require( 'rollup-plugin-serve' );
+import gulp from 'gulp';
+import rename from '@sequencemedia/gulp-rename';
+import { rollup } from 'rollup';
+import { babel } from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import eslint from '@rollup/plugin-eslint';
+import terser from '@rollup/plugin-terser';
+import { sass } from '@mr-hope/gulp-sass';
+import autoprefixer from 'gulp-autoprefixer';
+import cleancss from 'gulp-clean-css';
+import serve from 'rollup-plugin-serve';
 
 const gzipSizeFromFileSync = async ( path ) => {
   const gzipSize = await import( 'gzip-size' );
@@ -95,7 +94,7 @@ const clean = ( callback ) => {
 const buildjs = () => {
   const banner =
     '/* \n' +
-    ' * heMenu v' + pckg.version + '\n' +
+    ' * heMenu v' + process.env.npm_package_version + '\n' +
     ' * https://github.com/meceware/heMenu \n' +
     ' * \n' +
     ' * Made by Mehmet Celik (https://www.meceware.com/) \n' +
@@ -183,5 +182,5 @@ const size = ( callback ) => {
   } );
 };
 
-exports.dev = gulp.series( gulp.parallel( devjs, css ), watch );
-exports.build = gulp.series( clean, buildjs, css, size );
+export const dev = gulp.series( gulp.parallel( devjs, css ), watch );
+export const build = gulp.series( clean, buildjs, css, size );

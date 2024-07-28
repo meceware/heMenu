@@ -45,7 +45,6 @@
         callback.call(scope, array[i]); // passes back stuff we need
       }
     };
-
     const closest = (element, selector, parent = document) => {
       while (element && element.nodeType === 1 && element !== parent) {
         if (element.matches(selector)) {
