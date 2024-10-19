@@ -130,10 +130,10 @@ With docker, you can also run the following command:
 
 ```bash
 # To build
-docker run --rm --volume ./:/app --workdir /app --publish 8001:8001 node:22.5.1 /bin/bash -c "npm install && npm run build"
+docker run --rm --volume ./:/app --workdir /app --publish 8001:8001 node:23.0 /bin/bash -c "npm install && npm run build"
 
 # Manual via terminal
-docker run -it --rm --volume ./:/app --workdir /app --publish 8001:8001 node:22.5.1 /bin/bash
+docker run -it --rm --volume ./:/app --workdir /app --publish 8001:8001 node:23.0 /bin/bash
 ```
 
 ## Credits

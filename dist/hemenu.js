@@ -1,5 +1,5 @@
 /* 
- * heMenu v1.0.5
+ * heMenu v1.0.6
  * https://github.com/meceware/heMenu 
  * 
  * Made by Mehmet Celik (https://www.meceware.com/) 
