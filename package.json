@@ -33,16 +33,16 @@
     "last 2 iOS major versions"
   ],
   "devDependencies": {
-    "@babel/core": "^7.25.8",
-    "@babel/preset-env": "^7.25.8",
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
     "@mr-hope/gulp-sass": "^3.1.1",
     "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-eslint": "^9.0.5",
-    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^0.4.4",
-    "@sequencemedia/gulp-rename": "^1.0.180",
-    "core-js": "^3.38.1",
+    "@sequencemedia/gulp-rename": "^1.0.238",
+    "core-js": "^3.41.0",
     "del": "^8.0.0",
     "element-closest-polyfill": "^1.0.7",
     "element-matches-polyfill": "^1.0.0",
@@ -51,8 +51,8 @@
     "gulp-clean-css": "^4.3.0",
     "gzip-size": "^7.0.0",
     "js-size": "^2.1.7",
-    "rollup": "^4.24.0",
-    "rollup-plugin-serve": "^1.1.1",
-    "sass": "1.80.3"
+    "rollup": "^4.39.0",
+    "rollup-plugin-serve": "^3.0.0",
+    "sass": "1.86.3"
   }
 }
